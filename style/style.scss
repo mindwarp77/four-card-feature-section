@@ -1,0 +1,148 @@
+$primaryRed:hsl(0, 78%, 62%);
+$primaryCyan: hsl(180, 62%, 55%);
+$primaryOrange: hsl(34, 97%, 64%);
+$primaryBlue: hsl(212, 86%, 64%);
+$neutralDarkBlue: hsl(234, 12%, 34%);
+$neutralGrayBlue: hsl(229, 6%, 66%);
+$neutralLightGray: hsl(0, 0%, 98%);
+
+%Poppins200 {
+    font-family: Poppins, sans-serif;
+    font-weight: 200;
+}
+%Poppins400{
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+}
+%Poppins600{
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.full-page {
+    font-size: 16px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .introduction {
+        width: 100%;
+        height: 20%;
+        padding: 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px;
+        & h2 {
+            font-size: 2.4rem;
+            line-height: 1.5em;
+            color: $neutralDarkBlue;
+            @media screen and (max-width: 425px) {
+                font-size: 1.6rem;
+            }
+        }
+
+        & h2:first-child {
+            @extend %Poppins200;
+        }
+
+        & h2:last-of-type{
+            @extend %Poppins600;
+            margin-bottom: 20px;
+        }
+
+        & p {
+            @extend %Poppins400;
+            width: 55%;
+            padding:0 10%;
+            font-size: 1.2rem;
+            color: $neutralGrayBlue;
+            @media screen and (max-width: 1024px){
+                width: 85%;
+            }
+            @media screen and (max-width: 768px){
+                width: 100%;
+            }
+            @media screen and (max-width: 425px) {
+                width: 90%;
+                padding: 0;
+                font-size: 1rem;
+            }
+        }
+    }
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(3,384px);
+        grid-template-rows: repeat(4,125.2px);
+        grid-gap: 20px 40px;
+        justify-items: center;
+        align-content: center;
+        align-self: center;
+        @media screen and (max-width: 1231px){
+            display: flex;
+            flex-direction: column;
+        }
+        .cards {
+            width: 384px; 
+            height: 250.4px; 
+            position: relative;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 25px  $neutralGrayBlue;
+            border-top: 4px solid;
+
+            @media screen and (max-width: 1231px){
+                width: 90%;
+                align-self: center;
+            }
+
+            & h4 {
+                color: $neutralDarkBlue;
+                font-size: 1.4rem;
+                @extend %Poppins600;
+                margin-bottom: 15px;
+            }
+
+            & p {
+                font-size: .9rem;
+                @extend %Poppins400;
+                color: $neutralGrayBlue;
+            }
+
+            & img {
+                position: absolute;
+                right: 30px;
+                bottom: 30px;
+            }
+        }
+        .card1 { //supervisor card
+            border-color: $primaryCyan;
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+        .card2 { //Team builder card
+            border-color: $primaryRed;
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+        .card3 { //karma card
+            border-color: $primaryOrange;
+            grid-column: 2/3;
+            grid-row: 3/4;
+        }
+        .card4 { //calculator card
+            border-color: $primaryBlue;
+            grid-column: 3/4;
+            grid-row: 2/3;
+        }
+    }
+}
